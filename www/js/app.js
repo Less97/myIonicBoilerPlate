@@ -23,9 +23,11 @@ angular.module('myBootstrap', ['ionic'])
     $stateProvider.state('login', {
             url: '/',
               templateUrl: 'views/login.html',
+              controller:'loginCtrl'
         })
         .state('register', {
             url:'/register',
-            templateUrl: 'views/register.html'
+            templateUrl: 'views/register.html',
+            controller:'registerCtrl'
         });
 })

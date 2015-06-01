@@ -1,9 +1,12 @@
-﻿<ion-view>
-    <ion-content ng-controller="loginCtrl">
-        <button class="button button-full button-positive" ng-Click="login()">
+﻿
+
+<ion-view view-title="Login">
+
+    <ion-content >
+        <button class="button button-full button-positive" ng-click="loginClick()">
            Login
         </button>
-        <button class="button button-full button-positive" ng-Click="register()">
+        <button class="button button-full button-positive" ui-sref="register">
             Register
         </button>
     </ion-content>

@@ -2,16 +2,18 @@ var myBootstrap = angular.module('myBootstrap');
 
 myBootstrap.controller('loginCtrl', ['$scope',
    function ($scope) {
-   		$scope.login = function(){
-   			alert('Logged in!');
-   		}
-   		$scope.register = function()
-   		{
-   		}
+   		$scope.loginClick = function(){
+        alert('login!');
+      }
   }]);
 
-myBootstrap.controller('registerCtrl', ['$scope',
-  function($scope) {
-
-  }]);
+myBootstrap.controller('registerCtrl', 
+  function($scope,$state) {
+      $scope.registerClick = function(){
+        alert("register!");
+      }
+      $scope.back  = function(){
+        $state.go('login');
+      }
+  });
 
