@@ -1,19 +1,32 @@
 var myBootstrap = angular.module('myBootstrap');
 
-myBootstrap.controller('loginCtrl', ['$scope',
-   function ($scope) {
-   		$scope.loginClick = function(){
-        alert('login!');
+myBootstrap.controller('loginCtrl', ['$scope', '$state', 'serviceLayer', 'utility',
+   function ($scope, $state, serviceLayer) {
+
+       $scope.userData =
+       {
+           username: '',
+           password: '',
+           errorMessage: '',
+           isErrorShown: function () {
+               return $scope.userData.errorMessage != "";
+           }
+       }
+
+       $scope.loginClick = function () {
+           if (serviceLayer.login($scope.userData.username, $scope.userData.password))
+               $state.go("tabs.home");
+           $scope.userData.errorMessage = "Username or password not valid";
+       }
+   }]);
+
+myBootstrap.controller('registerCtrl', ['$scope', 'serviceLayer',
+  function ($scope, $state, serviceLayer) {
+      $scope.registerClick = function () {
+          serviceLayer.register("username", "password", "email");
+      }
+      $scope.back = function () {
+          $state.go('login');
       }
   }]);
-
-myBootstrap.controller('registerCtrl', 
-  function($scope,$state) {
-      $scope.registerClick = function(){
-        alert("register!");
-      }
-      $scope.back  = function(){
-        $state.go('login');
-      }
-  });
 
