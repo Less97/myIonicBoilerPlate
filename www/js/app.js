@@ -24,33 +24,36 @@ angular.module('myBootstrap', ['ionic'])
         url: '/',
         templateUrl: 'views/login/login.html',
         controller: 'loginCtrl'
-         }).state('register', {
+         })
+        .state('register', {
             url: '/register',
             templateUrl: 'views/login/register.html',
             controller: 'registerCtrl'
-        }).state('tabs', {
-            url: '/register',
+         })
+        .state('tabs', {
+            url: '/tabs',
             abstract: true,
             templateUrl: 'views/main/tabs.html',
-        }).state('tabs.home', {
-            url: '/home',
+        })
+        .state('tabs.dash', {
+            url: '/tabs/dash',
             views: {
-                "tab-home": {
-                    templateUrl: 'views/main/tabHome.html',
+                "tab-dash": {
+                    templateUrl: 'views/main/tab-dash.html',
                 }
             }
-        }).state('tabs.list', {
-            url: '/home',
+        }).state('tabs.chats', {
+            url: '/tab/chats',
             views: {
-                "tab-list": {
-                    templateUrl: 'views/main/tabList.html',
+                "tab-chats": {
+                    templateUrl: 'views/main/tab-chats.html',
                 }
             }
-        }).state('tabs.map', {
-             url: '/home',
+        }).state('tabs.account', {
+            url: '/tab/account',
              views: {
-                 "tab-map": {
-                     templateUrl: 'views/main/tabMap.html',
+                 "tab-account": {
+                     templateUrl: 'views/main/tab-account.html',
                  }
              }
          });

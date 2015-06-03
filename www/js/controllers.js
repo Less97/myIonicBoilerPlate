@@ -15,7 +15,7 @@ myBootstrap.controller('loginCtrl', ['$scope', '$state', 'serviceLayer', 'utilit
 
        $scope.loginClick = function () {
            if (serviceLayer.login($scope.userData.username, $scope.userData.password))
-               $state.go("tabs.home");
+               $state.go("tabs.dash");
            $scope.userData.errorMessage = "Username or password not valid";
        }
    }]);
